@@ -37,7 +37,7 @@ body {
 
 /* Larger Logo */
 .logo {
-  max-width: 15%; /* Adjusts based on screen size */
+  max-width: 15%;
   height: auto;
 }
 
@@ -55,11 +55,6 @@ body {
 .input-group {
   text-align: left;
   margin-bottom: 15px;
-}
-
-.input-row {
-  display: flex;
-  justify-content: space-between;
 }
 
 .input-group label {
@@ -111,5 +106,34 @@ input, select {
 
 /* Chart Container */
 .chart-container {
+  margin-top: 20px;
+}
+
+/* Additional styling for product rows */
+.product-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.product-row .input-group {
+  flex: 1 1 45%;
+  margin-right: 5%;
+}
+
+.product-row .input-group:last-of-type {
+  margin-right: 0;
+}
+
+.product-row .removeProduct {
+  flex: 1 1 100%;
+  margin-top: 10px;
+}
+
+/* Spacing for Loan Type Section */
+.loan-type-section {
   margin-top: 20px;
 }
