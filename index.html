@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>iOS Loan Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- PEBL Loan Calculator -->
+  <header class="ios-header">
+    <img src="D:\Loan Calculator\logo.png" alt="PEBL Logo" class="logo">
+    <h1>Loan Calculator</h1>
+  </header>
+
+  <!-- Main App Container -->
+  <div class="container">
+
+    <form id="loanForm">
+
+      <!-- Currency Selection -->
+      <div class="input-group">
+        <label>Currency</label>
+        <select id="currency">
+          <option value="ZAR">ZAR (R)</option>
+          <option value="USD">USD ($)</option>
+          <option value="GBP">GBP (£)</option>
+        </select>
+      </div>
+
+      <!-- Unit Cost & Quantity -->
+      <div class="input-row">
+        <div class="input-group">
+          <label>Cost per Unit</label>
+          <input type="number" id="costPrice" value="100">
+        </div>
+        <div class="input-group">
+          <label>Quantity</label>
+          <input type="number" id="quantity" value="10">
+        </div>
+      </div>
+
+      <!-- Loan Term Selector -->
+      <div class="input-group">
+        <label>Loan Type</label>
+        <select id="loanType">
+          <option value="short">Short-Term (3 months @ 1.5%)</option>
+          <option value="medium">Medium-Term (6 months: 1.5% then 2%)</option>
+          <option value="long">Long-Term (12 months: 1.5% then 2%)</option>
+        </select>
+      </div>
+
+      <!-- iOS-style Calculate Button -->
+      <button type="submit" class="ios-button">Calculate</button>
+    </form>
+
+    <!-- Results -->
+    <div id="results" class="card hidden">
+      <h2>Results</h2>
+      <p id="totalCost"></p>
+      <p id="totalInterest"></p>
+      <p id="totalAmount"></p>
+    </div>
+
+    <!-- Chart -->
+    <div class="chart-container">
+      <canvas id="repaymentChart"></canvas>
+    </div>
+
+    <!-- Export Buttons -->
+    <div class="button-group">
+      <button id="exportPDF" class="ios-button secondary">Export PDF</button>
+      <button id="exportExcel" class="ios-button secondary">Export CSV</button>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

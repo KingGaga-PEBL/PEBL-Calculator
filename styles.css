@@ -1,0 +1,115 @@
+/* iOS Light & Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #1c1c1e;
+    color: white;
+  }
+  .container {
+    background: #2c2c2e;
+  }
+  .card {
+    background: #3a3a3c;
+  }
+  .ios-button {
+    background: #0a579d;
+    color: white;
+  }
+}
+
+/* General Styling */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f4f4;
+  text-align: center;
+}
+
+/* iOS Header */
+.ios-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: white;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Larger Logo */
+.logo {
+  max-width: 15%; /* Adjusts based on screen size */
+  height: auto;
+}
+
+/* Main Container */
+.container {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* iOS-style Inputs */
+.input-group {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.input-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-group label {
+  font-weight: bold;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background: #f9f9f9;
+}
+
+/* iOS Buttons */
+.ios-button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 10px;
+  background: #0a579d;
+  color: white;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.ios-button:hover {
+  opacity: 0.8;
+}
+
+.ios-button.secondary {
+  background: #34c759;
+}
+
+/* Card Style for Results */
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 15px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.hidden {
+  display: none;
+}
+
+/* Chart Container */
+.chart-container {
+  margin-top: 20px;
+}
