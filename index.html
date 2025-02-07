@@ -6,11 +6,14 @@
   <title>PEBL Loan Calculator</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="manifest" href="manifest.json">
+  <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- jsPDF for PDF export -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
 
-  <!-- PEBL Loan Calculator -->
+  <!-- PEBL Loan Calculator Header -->
   <header class="ios-header">
     <img src="logo.png" alt="PEBL Logo" class="logo">
     <h1>Loan Calculator</h1>
@@ -18,9 +21,7 @@
 
   <!-- Main App Container -->
   <div class="container">
-
     <form id="loanForm">
-
       <!-- Currency Selection -->
       <div class="input-group">
         <label>Currency</label>
@@ -30,42 +31,64 @@
           <option value="GBP">GBP (£)</option>
         </select>
       </div>
-
-      <!-- Unit Cost & Quantity -->
-      <div class="input-row">
-        <div class="input-group">
-          <label>Cost per Unit</label>
-          <input type="number" id="costPrice" value="100">
-        </div>
-        <div class="input-group">
-          <label>Quantity</label>
-          <input type="number" id="quantity" value="10">
-        </div>
-      </div>
-
-      <!-- Loan Term Selector -->
+      
+      <!-- Target Currency for Conversion -->
       <div class="input-group">
-        <label>Loan Type</label>
-        <select id="loanType">
-          <option value="short">Short-Term (3 months @ 1.5%)</option>
-          <option value="medium">Medium-Term (6 months: 1.5% then 2%)</option>
-          <option value="long">Long-Term (12 months: 1.5% then 2%)</option>
+        <label>Convert to Currency</label>
+        <select id="targetCurrency">
+          <option value="none" selected>None</option>
+          <option value="ZAR">ZAR (R)</option>
+          <option value="USD">USD ($)</option>
+          <option value="GBP">GBP (£)</option>
         </select>
       </div>
 
-      <!-- iOS-style Calculate Button -->
+      <!-- Product Rows for Unit Cost & Quantity -->
+      <div id="products">
+        <div class="product-row">
+          <div class="input-group">
+            <label>Cost per Unit</label>
+            <input type="number" class="costPrice" value="100">
+          </div>
+          <div class="input-group">
+            <label>Quantity</label>
+            <input type="number" class="quantity" value="10">
+          </div>
+        </div>
+      </div>
+      <button type="button" id="addProduct" class="ios-button">Add Product</button>
+
+      <!-- Spacing added above Loan Type section -->
+      <div class="loan-type-section">
+        <div class="input-group">
+          <label>Loan Type</label>
+          <select id="loanType">
+            <option value="short">Short-Term (3 months @ 1.5%)</option>
+            <option value="medium">Medium-Term (6 months: 1.5% then 2%)</option>
+            <option value="long">Long-Term (12 months: 1.5% then 2%)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Calculate Button -->
       <button type="submit" class="ios-button">Calculate</button>
     </form>
 
-    <!-- Results -->
+    <!-- Results Section -->
     <div id="results" class="card hidden">
       <h2>Results</h2>
       <p id="totalCost"></p>
       <p id="totalInterest"></p>
       <p id="totalAmount"></p>
+      <div id="conversionResults" class="hidden">
+        <h3>Converted Amounts</h3>
+        <p id="convertedTotalCost"></p>
+        <p id="convertedTotalInterest"></p>
+        <p id="convertedTotalAmount"></p>
+      </div>
     </div>
 
-    <!-- Chart -->
+    <!-- Chart Section -->
     <div class="chart-container">
       <canvas id="repaymentChart"></canvas>
     </div>
@@ -79,6 +102,5 @@
   </div>
 
   <script src="script.js"></script>
-
 </body>
 </html>
